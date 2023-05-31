@@ -24,7 +24,7 @@ for link in link_tag:
 
 # print("link_tag_list:- ", link_tag_list)
 
-path = r"C:\Users\acer\PycharmProjects\calculator\flipkart_images"
+path = r"C:\Users\acer\PycharmProjects\webScraping\flipkart_scrap_data"
 filename = "links.txt"
 
 str_list = []
@@ -48,7 +48,7 @@ for m in meta:
 
 
 # ***** writing meta tags to "meta.txt" file *****
-with open("flipkart_images/meta.txt", "w") as meta_txt:
+with open("flipkart_scrap_data/meta.txt", "w") as meta_txt:
     for m in meta_tag_list:
         s = str(m)
         # print(m)
@@ -68,7 +68,7 @@ for heading in h2:
 
 # print(h2_set)
 # ***** writing h2 tags text to h2.txt file *****
-with open("flipkart_images/h2.txt", "w") as h2_txt:
+with open("flipkart_scrap_data/h2.txt", "w") as h2_txt:
     for h2 in h2_set:
         s = str(h2)
         h2_txt.write("".join(s)+"\n");
@@ -88,7 +88,7 @@ for a in anchor:
 # print(anchor_tag_links)
 
 # ***** writing h2 tags text to h2.txt file *****
-with open("flipkart_images/anchor.txt","w") as anchor_txt:
+with open("flipkart_scrap_data/anchor.txt","w") as anchor_txt:
     for a in anchor_tag_links:
         s = str(a)
         anchor_txt.write("".join(s)+"\n")
@@ -105,14 +105,14 @@ for i in image:
 
 # print(len(image))
 
-if not os.path.isdir("flipkart_images"):
-    os.mkdir("flipkart_images")
+if not os.path.isdir("flipkart_scrap_data"):
+    os.mkdir("flipkart_scrap_data")
 
 i = 1
 for index, img_link in enumerate(image_tag_src):
     if i <= 10:
         img_data  = requests.get(img_link).content
-        with open("flipkart_images/"+str(index+1)+".jpg", "wb+") as f:
+        with open("flipkart_scrap_data/"+str(index+1)+".jpg", "wb+") as f:
             f.write(img_data)
             i+=1
         print(img_data)
